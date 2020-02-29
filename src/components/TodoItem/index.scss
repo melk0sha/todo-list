@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 17px;
+    border-bottom: 1px solid #7a1575c2;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    .todo-delete {
+        color: #be1d1d;
+
+        &:hover {
+            color: #da2626;
+        }
+
+        &:active {
+            color: #971414;
+        }
+    }
+
+    .todo-item-wrapper {
+        display: flex;
+
+        .todo-text {
+            margin-left: 10px;
+
+            &.todo-text-done {
+                text-decoration: line-through;
+            }
+        }
+
+        .todo-done {
+            color: #209e15;
+            transition: color 1s ease;
+        }
+
+        .todo-clear {
+            color: #751455;
+            transition: color 1s ease;
+        }
+    }
+}
