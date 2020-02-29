@@ -17,7 +17,7 @@ export default class App extends Component {
     const { inputValue, todoList } = this.state;
 
     if (key === "Enter" && inputValue) {
-      todoList.push(inputValue);
+      todoList.push({ value: inputValue, done: false });
       this.setState({ inputValue: "", todoList });
     }
   };
@@ -26,7 +26,9 @@ export default class App extends Component {
     event.stopPropagation();
     const {
       target: {
-        dataset: { id }
+        parentElement: {
+          dataset: { id }
+        }
       }
     } = event;
     let { todoList } = this.state;
@@ -35,8 +37,21 @@ export default class App extends Component {
     this.setState({ todoList });
   };
 
+  onTodoClick = ({
+    currentTarget: {
+      dataset: { id }
+    }
+  }) => {
+    const { todoList } = this.state;
+
+    todoList[
+      todoList.findIndex((todoItem, idx) => idx === +id)
+    ].done = !todoList[todoList.findIndex((todoItem, idx) => idx === +id)].done;
+    this.setState({ todoList });
+  };
+
   render() {
-    const { onInputChange, onInputKeyPress, onDeleteClick } = this;
+    const { onInputChange, onInputKeyPress, onDeleteClick, onTodoClick } = this;
     const { inputValue, todoList } = this.state;
 
     return (
@@ -47,7 +62,11 @@ export default class App extends Component {
           onInputChange={onInputChange}
           onInputKeyPress={onInputKeyPress}
         />
-        <TodoList todoList={todoList} onDeleteClick={onDeleteClick} />
+        <TodoList
+          todoList={todoList}
+          onDeleteClick={onDeleteClick}
+          onTodoClick={onTodoClick}
+        />
       </div>
     );
   }
