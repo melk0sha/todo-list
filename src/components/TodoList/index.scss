@@ -1,14 +1,14 @@
 .todo-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    background-color: #a715a021;
-    border-radius: 5px;
-    border: 1px solid #7a15758c;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  background-color: #a715a021;
+  border-radius: 5px;
+  box-shadow: 1px 3px 10px -5px #0000007a;
 }
 
 .todo-nothing {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 17px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 17px;
 }
