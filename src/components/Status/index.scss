@@ -1,3 +1,16 @@
-.todo-title {
-  font-size: 32px;
+.todo-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .todo-title {
+    font-size: 2rem;
+    color: #000000d5;
+  }
+
+  .todo-info {
+    font-size: 18px;
+    color: #000000a2;
+    margin-bottom: 3px;
+  }
 }

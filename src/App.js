@@ -53,10 +53,12 @@ export default class App extends Component {
   render() {
     const { onInputChange, onInputKeyPress, onDeleteClick, onTodoClick } = this;
     const { inputValue, todoList } = this.state;
+    const doneTodos = todoList.filter((todoItem) => todoItem.done).length;
+    const totalTodos = todoList.length;
 
     return (
       <div className="todo-container">
-        <Status />
+        <Status doneTodos={doneTodos} totalTodos={totalTodos} />
         <Input
           inputValue={inputValue}
           onInputChange={onInputChange}
