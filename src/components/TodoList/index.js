@@ -8,16 +8,18 @@ export default class TodoList extends Component {
 
     return todoList.length ? (
       <ul className="todo-list">
-        {todoList.map((todoItem, idx) => (
-          <TodoItem
-            key={idx}
-            todoId={idx}
-            todoItem={todoItem.value}
-            isDone={todoItem.done}
-            onDeleteClick={onDeleteClick}
-            onTodoClick={onTodoClick}
-          />
-        ))}
+        {todoList.map((todoItem, idx) =>
+          todoItem.visible ? (
+            <TodoItem
+              key={idx}
+              todoId={idx}
+              todoItem={todoItem.value}
+              isDone={todoItem.done}
+              onDeleteClick={onDeleteClick}
+              onTodoClick={onTodoClick}
+            />
+          ) : null
+        )}
       </ul>
     ) : (
       <p className="todo-nothing">There is no any task to do</p>

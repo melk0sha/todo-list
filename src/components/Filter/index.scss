@@ -1,0 +1,26 @@
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-left: 1px solid #a0539c81;
+  background-color: #9615a721;
+  outline: none;
+  color: #000000d5;
+  transition: background-color 0.2s ease;
+
+  &.todo-active {
+    background-color: #75145579;
+  }
+
+  &:hover {
+    background-color: #75145559;
+  }
+
+  &:active {
+    background-color: #75145569;
+  }
+}

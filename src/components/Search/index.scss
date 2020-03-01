@@ -1,0 +1,16 @@
+.todo-widget {
+  display: flex;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 3px 10px -5px #0000007a;
+  overflow: hidden;
+}
+
+.todo-search {
+  width: 70%;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  background-color: #9615a721;
+  border: none;
+  outline: none;
+}
