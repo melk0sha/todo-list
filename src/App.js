@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 import Status from "./components/Status";
 import Search from "./components/Search";
 import Filter from "./components/Filter";
+import Footer from "./components/Footer";
 import filterValues from "./constants/filterValues";
 import keyCode from "./constants/keyCode";
 import "./index.scss";
@@ -29,29 +30,22 @@ export default class App extends Component {
   handleFiltering = (value, activeFilter) => {
     const { todoList } = this.state;
 
-    switch (activeFilter) {
-      default:
-      case filterValues.ALL:
-        todoList.forEach(
-          (todoItem) =>
-            (todoItem.visible = todoItem.value.toLowerCase().includes(value))
-        );
-        break;
-      case filterValues.TODO:
-        todoList.forEach(
-          (todoItem) =>
-            (todoItem.visible =
-              todoItem.value.toLowerCase().includes(value) && !todoItem.done)
-        );
-        break;
-      case filterValues.DONE:
-        todoList.forEach(
-          (todoItem) =>
-            (todoItem.visible =
-              todoItem.value.toLowerCase().includes(value) && todoItem.done)
-        );
-        break;
-    }
+    todoList.forEach((todoItem) => {
+      switch (activeFilter) {
+        default:
+        case filterValues.ALL:
+          todoItem.visible = todoItem.value.toLowerCase().includes(value);
+          break;
+        case filterValues.TODO:
+          todoItem.visible =
+            todoItem.value.toLowerCase().includes(value) && !todoItem.done;
+          break;
+        case filterValues.DONE:
+          todoItem.visible =
+            todoItem.value.toLowerCase().includes(value) && todoItem.done;
+          break;
+      }
+    });
 
     return todoList;
   };
@@ -129,23 +123,26 @@ export default class App extends Component {
     const totalTodos = todoList.filter((todoItem) => todoItem.visible).length;
 
     return (
-      <div className="todo-container">
-        <Status doneTodos={doneTodos} totalTodos={totalTodos} />
-        <div className="todo-widget">
-          <Search searchValue={searchValue} onSearchChange={onSearchChange} />
-          <Filter activeFilter={activeFilter} onFilterClick={onFilterClick} />
+      <>
+        <div className="todo-container">
+          <Status doneTodos={doneTodos} totalTodos={totalTodos} />
+          <div className="todo-widget">
+            <Search searchValue={searchValue} onSearchChange={onSearchChange} />
+            <Filter activeFilter={activeFilter} onFilterClick={onFilterClick} />
+          </div>
+          <Input
+            inputValue={inputValue}
+            onInputChange={onInputChange}
+            onInputKeyPress={onInputKeyPress}
+          />
+          <TodoList
+            todoList={todoList}
+            onDeleteClick={onDeleteClick}
+            onTodoItemClick={onTodoItemClick}
+          />
         </div>
-        <Input
-          inputValue={inputValue}
-          onInputChange={onInputChange}
-          onInputKeyPress={onInputKeyPress}
-        />
-        <TodoList
-          todoList={todoList}
-          onDeleteClick={onDeleteClick}
-          onTodoItemClick={onTodoItemClick}
-        />
-      </div>
+        <Footer />
+      </>
     );
   }
 }
