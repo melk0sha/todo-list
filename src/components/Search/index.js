@@ -3,16 +3,15 @@ import "./index.scss";
 
 export default class Search extends Component {
   render() {
-    const { onSearchChange } = this.props;
+    const { searchValue, onSearchChange } = this.props;
 
     return (
       <input
         className="todo-search"
         type="text"
         placeholder="Type to search"
-        // value={searchValue}
+        value={searchValue}
         onChange={onSearchChange}
-        // onKeyPress={onInputKeyPress}
       />
     );
   }

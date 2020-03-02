@@ -4,7 +4,7 @@ import TodoItem from "../TodoItem";
 
 export default class TodoList extends Component {
   render() {
-    const { todoList, onDeleteClick, onTodoClick } = this.props;
+    const { todoList, onDeleteClick, onTodoItemClick } = this.props;
 
     return todoList.length ? (
       <ul className="todo-list">
@@ -16,7 +16,7 @@ export default class TodoList extends Component {
               todoItem={todoItem.value}
               isDone={todoItem.done}
               onDeleteClick={onDeleteClick}
-              onTodoClick={onTodoClick}
+              onTodoItemClick={onTodoItemClick}
             />
           ) : null
         )}

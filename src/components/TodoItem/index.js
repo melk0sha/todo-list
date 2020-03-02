@@ -15,10 +15,16 @@ export default class TodoItem extends Component {
   render() {
     // const { onTodoClick } = this;
     // const { done } = this.state;
-    const { todoId, todoItem, isDone, onDeleteClick, onTodoClick } = this.props;
+    const {
+      todoId,
+      todoItem,
+      isDone,
+      onDeleteClick,
+      onTodoItemClick
+    } = this.props;
 
     return (
-      <li className="todo-item" onClick={onTodoClick} data-id={todoId}>
+      <li className="todo-item" onClick={onTodoItemClick} data-id={todoId}>
         <div className="todo-item-wrapper">
           {isDone ? (
             <i className="todo-done material-icons">done</i>

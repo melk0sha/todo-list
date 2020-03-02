@@ -1,38 +1,34 @@
 import React, { Component } from "react";
+import filterValues from "../../constants/filterValues";
 import "./index.scss";
 
-const filter = {
-  all: "all",
-  active: "active",
-  done: "done"
-};
 export default class Filter extends Component {
   render() {
-    const { activeFilter, onAllClick, onActiveClick, onDoneClick } = this.props;
+    const { activeFilter, onFilterClick } = this.props;
 
     return (
       <>
         <button
-          className={`todo-filter ${
-            activeFilter === filter.all ? "todo-active" : null
+          className={`todo-filter${
+            activeFilter === filterValues.all ? " todo-active" : ""
           }`}
-          onClick={onAllClick}
+          onClick={onFilterClick}
         >
           All
         </button>
         <button
-          className={`todo-filter ${
-            activeFilter === filter.active ? "todo-active" : null
+          className={`todo-filter${
+            activeFilter === filterValues.todo ? " todo-active" : ""
           }`}
-          onClick={onActiveClick}
+          onClick={onFilterClick}
         >
-          Active
+          To do
         </button>
         <button
-          className={`todo-filter ${
-            activeFilter === filter.done ? "todo-active" : null
+          className={`todo-filter${
+            activeFilter === filterValues.done ? " todo-active" : ""
           }`}
-          onClick={onDoneClick}
+          onClick={onFilterClick}
         >
           Done
         </button>

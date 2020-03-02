@@ -4,23 +4,23 @@
   align-items: center;
   width: 10%;
   font-size: 1.1rem;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border: none;
   border-left: 1px solid #a0539c81;
-  background-color: #9615a721;
+  background-color: #fffbff;
   outline: none;
   color: #000000d5;
   transition: background-color 0.2s ease;
 
   &.todo-active {
-    background-color: #75145579;
+    background-color: #bd58af63;
   }
 
   &:hover {
-    background-color: #75145559;
+    background-color: #e984db63;
   }
 
   &:active {
-    background-color: #75145569;
+    background-color: #d162c263;
   }
 }
