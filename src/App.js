@@ -5,35 +5,46 @@ import Status from "./components/Status";
 import Search from "./components/Search";
 import Filter from "./components/Filter";
 import filterValues from "./constants/filterValues";
+import keyCode from "./constants/keyCode";
 import "./index.scss";
 
 export default class App extends Component {
   state = {
     inputValue: "",
-    searchValue: "",
-    todoList: [],
-    activeFilter: "all"
+    searchValue: localStorage.getItem("searchValue") || "",
+    todoList: JSON.parse(localStorage.getItem("todoList")) || [],
+    activeFilter: localStorage.getItem("activeFilter") || filterValues.ALL
   };
+
+  componentDidUpdate() {
+    const { searchValue, todoList, activeFilter } = this.state;
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("searchValue", searchValue);
+      localStorage.setItem("todoList", JSON.stringify(todoList));
+      localStorage.setItem("activeFilter", activeFilter);
+    });
+  }
 
   handleFiltering = (value, activeFilter) => {
     const { todoList } = this.state;
 
     switch (activeFilter) {
       default:
-      case filterValues.all:
+      case filterValues.ALL:
         todoList.forEach(
           (todoItem) =>
             (todoItem.visible = todoItem.value.toLowerCase().includes(value))
         );
         break;
-      case filterValues.todo:
+      case filterValues.TODO:
         todoList.forEach(
           (todoItem) =>
             (todoItem.visible =
               todoItem.value.toLowerCase().includes(value) && !todoItem.done)
         );
         break;
-      case filterValues.done:
+      case filterValues.DONE:
         todoList.forEach(
           (todoItem) =>
             (todoItem.visible =
@@ -69,7 +80,7 @@ export default class App extends Component {
   onInputKeyPress = ({ key }) => {
     const { inputValue, todoList } = this.state;
 
-    if (key === "Enter" && inputValue) {
+    if (key === keyCode.ENTER && inputValue) {
       todoList.push({ value: inputValue, done: false, visible: true });
       this.setState({ inputValue: "", todoList });
     }
@@ -96,10 +107,9 @@ export default class App extends Component {
     }
   }) => {
     const { todoList } = this.state;
+    const todoIndex = todoList.findIndex((todoItem, idx) => idx === +id);
 
-    todoList[
-      todoList.findIndex((todoItem, idx) => idx === +id)
-    ].done = !todoList[todoList.findIndex((todoItem, idx) => idx === +id)].done;
+    todoList[todoIndex].done = !todoList[todoIndex].done;
     this.setState({ todoList });
   };
 
@@ -113,8 +123,10 @@ export default class App extends Component {
       onTodoItemClick
     } = this;
     const { inputValue, searchValue, todoList, activeFilter } = this.state;
-    const doneTodos = todoList.filter((todoItem) => todoItem.done).length;
-    const totalTodos = todoList.length;
+    const doneTodos = todoList.filter(
+      (todoItem) => todoItem.done && todoItem.visible
+    ).length;
+    const totalTodos = todoList.filter((todoItem) => todoItem.visible).length;
 
     return (
       <div className="todo-container">

@@ -11,6 +11,7 @@
   outline: none;
   color: #000000d5;
   transition: background-color 0.2s ease;
+  transition: width 0.4s ease;
 
   &.todo-active {
     background-color: #bd58af63;
@@ -22,5 +23,18 @@
 
   &:active {
     background-color: #d162c263;
+  }
+
+  @media (max-width: 920px) {
+    width: 13%;
+  }
+
+  @media (max-width: 640px) {
+    border-top: 1px solid #a0539c81;
+    width: calc(100% / 3);
+
+    &:first-of-type {
+      border-left: none;
+    }
   }
 }

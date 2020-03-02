@@ -10,7 +10,7 @@ export default class Filter extends Component {
       <>
         <button
           className={`todo-filter${
-            activeFilter === filterValues.all ? " todo-active" : ""
+            activeFilter === filterValues.ALL ? " todo-active" : ""
           }`}
           onClick={onFilterClick}
         >
@@ -18,7 +18,7 @@ export default class Filter extends Component {
         </button>
         <button
           className={`todo-filter${
-            activeFilter === filterValues.todo ? " todo-active" : ""
+            activeFilter === filterValues.TODO ? " todo-active" : ""
           }`}
           onClick={onFilterClick}
         >
@@ -26,7 +26,7 @@ export default class Filter extends Component {
         </button>
         <button
           className={`todo-filter${
-            activeFilter === filterValues.done ? " todo-active" : ""
+            activeFilter === filterValues.DONE ? " todo-active" : ""
           }`}
           onClick={onFilterClick}
         >

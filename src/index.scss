@@ -20,4 +20,17 @@ body {
   width: 50%;
   max-width: 1000px;
   margin: 40px auto 0;
+  transition: width 0.4s ease;
+
+  @media (max-width: 1300px) {
+    width: 60%;
+  }
+
+  @media (max-width: 1070px) {
+    width: 70%;
+  }
+
+  @media (max-width: 920px) {
+    width: 80%;
+  }
 }

@@ -1,7 +1,7 @@
 const filterValues = {
-  all: "all",
-  todo: "todo",
-  done: "done"
+  ALL: "all",
+  TODO: "todo",
+  DONE: "done"
 };
 
 export default filterValues;

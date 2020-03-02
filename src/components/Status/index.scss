@@ -9,8 +9,18 @@
   }
 
   .todo-info {
-    font-size: 18px;
+    font-size: 1.1rem;
     color: #000000a2;
     margin-bottom: 3px;
+  }
+
+  @media (max-width: 440px) {
+    .todo-title {
+      font-size: 1.5rem;
+    }
+
+    .todo-info {
+      font-size: 0.9rem;
+    }
   }
 }
