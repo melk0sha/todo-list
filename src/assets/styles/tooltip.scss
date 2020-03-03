@@ -18,11 +18,16 @@
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  margin-left: -100px;
+  margin-left: -115px;
 
   /* Fade in tooltip */
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
+
+  @media (max-width: 500px) {
+    width: 130px;
+    margin-left: -65px;
+  }
 }
 
 /* Tooltip arrow */

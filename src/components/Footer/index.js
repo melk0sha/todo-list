@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import Clipboard from "react-clipboard.js";
+import tooltipText from "../../constants/tooltipText";
+import events from "../../constants/events";
 import "./index.scss";
 
-// Click to copy my email address to your clipboard
-// Yay! My email address has been copied to your clipboard
-
 export default class Footer extends Component {
-  onTooltipChange = () => {
-    const tooltip = document.querySelector(".tooltiptext");
-    tooltip.textContent =
-      "Yay! My email address has been copied to your clipboard";
+  state = {
+    tooltip: tooltipText.DEFAULT
+  };
+
+  onCopyToClipboard = ({ type }) => {
+    if (type === events.CLICK) {
+      this.setState({ tooltip: tooltipText.COPIED });
+    } else if (type === events.MOUSEOUT) {
+      this.setState({ tooltip: tooltipText.DEFAULT });
+    }
   };
 
   render() {
-    const { onTooltipChange } = this;
+    const { onCopyToClipboard } = this;
+    const { tooltip } = this.state;
 
     return (
       <footer>
@@ -46,18 +52,20 @@ export default class Footer extends Component {
           >
             Telegram
           </a>
-          <Clipboard
-            className="social-icon social-mail tooltip"
-            component="a"
-            button-href="#"
-            data-clipboard-text="din.ivanova13@gmail.com"
-            onClick={onTooltipChange}
+          <div
+            className="social-mail-container"
+            onClick={onCopyToClipboard}
+            onMouseOut={onCopyToClipboard}
           >
-            Email
-            <span className="tooltiptext">
-              Click to copy my email address to your clipboard
-            </span>
-          </Clipboard>
+            <Clipboard
+              className="social-icon social-mail tooltip"
+              component="a"
+              data-clipboard-text="din.ivanova13@gmail.com"
+            >
+              Email
+              <span className="tooltiptext">{tooltip}</span>
+            </Clipboard>
+          </div>
         </div>
       </footer>
     );

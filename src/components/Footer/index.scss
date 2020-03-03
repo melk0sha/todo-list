@@ -45,4 +45,22 @@ footer {
       background-size: cover;
     }
   }
+
+  @media (max-width: 790px) {
+    flex-direction: column-reverse;
+    height: 110px;
+
+    .social-networks {
+      margin-top: 20px;
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .about {
+      margin-bottom: 10px;
+    }
+  }
 }
