@@ -53,7 +53,7 @@ export default class App extends Component {
   onSearchChange = ({ target: { value } }) => {
     const { handleFiltering } = this;
     const { activeFilter } = this.state;
-    const todoList = handleFiltering(value, activeFilter);
+    const todoList = handleFiltering(value.toLowerCase(), activeFilter);
 
     this.setState({ searchValue: value, todoList });
   };
@@ -62,7 +62,7 @@ export default class App extends Component {
     textContent = textContent.replace(/\s/g, "").toLowerCase();
     const { handleFiltering } = this;
     const { searchValue } = this.state;
-    const todoList = handleFiltering(searchValue, textContent);
+    const todoList = handleFiltering(searchValue.toLowerCase(), textContent);
 
     this.setState({ todoList, activeFilter: textContent });
   };
