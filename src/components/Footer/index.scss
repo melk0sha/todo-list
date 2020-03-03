@@ -1,8 +1,48 @@
+@import "../../assets/styles/tooltip.scss";
+
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 90px;
   flex: 0 0 auto;
   background-color: #bd58af63;
+
+  .about {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000b7;
+  }
+
+  .social-networks {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+
+    .social-icon {
+      height: 40px;
+      width: 40px;
+      text-indent: -9999px;
+    }
+
+    .social-github {
+      background-image: url(../../assets/icons/github.svg);
+      background-size: cover;
+    }
+
+    .social-linkedin {
+      background-image: url(../../assets/icons/linkedin.svg);
+      background-size: cover;
+    }
+
+    .social-telegram {
+      background-image: url(../../assets/icons/telegram.svg);
+      background-size: cover;
+    }
+
+    .social-mail {
+      background-image: url(../../assets/icons/mail.svg);
+      background-size: cover;
+    }
+  }
 }

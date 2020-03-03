@@ -7,7 +7,7 @@ import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import filterValues from "./constants/filterValues";
 import keyCode from "./constants/keyCode";
-import "./index.scss";
+import "./assets/styles/index.scss";
 
 export default class App extends Component {
   state = {

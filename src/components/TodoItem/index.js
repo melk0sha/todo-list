@@ -2,19 +2,7 @@ import React, { Component } from "react";
 import "./index.scss";
 
 export default class TodoItem extends Component {
-  // state = {
-  //   done: false
-  // };
-
-  // onTodoClick = () => {
-  //   this.setState((prevState) => {
-  //     return { done: !prevState.done };
-  //   });
-  // };
-
   render() {
-    // const { onTodoClick } = this;
-    // const { done } = this.state;
     const {
       todoId,
       todoItem,
