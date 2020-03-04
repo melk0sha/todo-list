@@ -7,6 +7,7 @@ import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import filterValues from "./constants/filterValues";
 import keyCode from "./constants/keyCode";
+import events from "./constants/events";
 import "./assets/styles/index.scss";
 
 export default class App extends Component {
@@ -67,16 +68,17 @@ export default class App extends Component {
     this.setState({ todoList, activeFilter: textContent });
   };
 
-  onInputChange = ({ target: { value } }) => {
-    this.setState({ inputValue: value });
-  };
-
-  onInputKeyPress = ({ key }) => {
+  onInputChange = ({ key, target: { type, value } }) => {
     const { inputValue, todoList } = this.state;
 
-    if (key === keyCode.ENTER && inputValue) {
+    if (
+      (key === keyCode.ENTER && inputValue) ||
+      (type === events.SUBMIT && inputValue)
+    ) {
       todoList.push({ value: inputValue, done: false, visible: true });
       this.setState({ inputValue: "", todoList });
+    } else {
+      this.setState({ inputValue: value });
     }
   };
 
@@ -112,7 +114,6 @@ export default class App extends Component {
       onSearchChange,
       onFilterClick,
       onInputChange,
-      onInputKeyPress,
       onDeleteClick,
       onTodoItemClick
     } = this;
@@ -130,11 +131,7 @@ export default class App extends Component {
             <Search searchValue={searchValue} onSearchChange={onSearchChange} />
             <Filter activeFilter={activeFilter} onFilterClick={onFilterClick} />
           </div>
-          <Input
-            inputValue={inputValue}
-            onInputChange={onInputChange}
-            onInputKeyPress={onInputKeyPress}
-          />
+          <Input inputValue={inputValue} onInputChange={onInputChange} />
           <TodoList
             todoList={todoList}
             onDeleteClick={onDeleteClick}

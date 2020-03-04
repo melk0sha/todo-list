@@ -19,7 +19,7 @@ export default class TodoItem extends Component {
           ) : (
             <i className="todo-clear material-icons">clear</i>
           )}
-          <span className={`todo-text ${isDone ? "todo-text-done" : null}`}>
+          <span className={`todo-text${isDone ? " todo-text-done" : ""}`}>
             {todoItem}
           </span>
         </div>

@@ -3,17 +3,22 @@ import "./index.scss";
 
 export default class Input extends Component {
   render() {
-    const { inputValue, onInputChange, onInputKeyPress } = this.props;
+    const { inputValue, onInputChange } = this.props;
 
     return (
-      <input
-        className="todo-input"
-        type="text"
-        placeholder="Write to add a task"
-        value={inputValue}
-        onChange={onInputChange}
-        onKeyPress={onInputKeyPress}
-      />
+      <div className="todo-add">
+        <input
+          className="todo-input"
+          type="text"
+          placeholder="Write to add a task"
+          value={inputValue}
+          onChange={onInputChange}
+          onKeyPress={onInputChange}
+        />
+        <button className="todo-input-add" onClick={onInputChange}>
+          Add
+        </button>
+      </div>
     );
   }
 }

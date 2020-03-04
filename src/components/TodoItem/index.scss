@@ -26,6 +26,8 @@
 
   .todo-item-wrapper {
     display: flex;
+    align-items: center;
+    overflow: hidden;
 
     .todo-text {
       margin-left: 10px;
