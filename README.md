@@ -2,17 +2,17 @@
 
 ---
 
-#### DEPLOYMENT
+### DEPLOYMENT
 
---- [**ToDo List Website link**](https://melk0sha-todo-list.netlify.com/ "ToDo List")
+- [**ToDo List Website link**](https://melk0sha-todo-list.netlify.com/ "ToDo List")
 
 ---
 
-#### OVERVIEW
+### OVERVIEW
 
 This is an application helps you to put all tasks together in one place.
 
-###### You can:
+You can:
 
 - add a task
 - delete a task
@@ -24,12 +24,12 @@ This is an application helps you to put all tasks together in one place.
 
 ---
 
-#### TOOLS USING
+### TOOLS USING
 
-There are React, JavaScript and SCSS were using.
+There are **React**, **JavaScript** and **SCSS** were using.
 
 ---
 
-##### DEVELOPMENT
+#### DEVELOPMENT
 
---- @ 2020 Diana Ivanova
+@ 2020 Diana Ivanova (@melk0sha)
