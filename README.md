@@ -28,6 +28,9 @@ You can:
 
 There are **React**, **JavaScript** and **SCSS** were using.
 
+According CSS:
+Adaptive & responsive design. Minimal page width with correct view - 320px.
+
 ---
 
 #### DEVELOPMENT
