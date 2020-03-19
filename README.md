@@ -26,7 +26,7 @@ You can:
 
 ### TOOLS USING
 
-There are **React**, **JavaScript** and **SCSS** were using.
+**React**, **JavaScript**, **Material Icons** and **SCSS** were used here.
 
 Regarding **styles**:  
 Adaptive & responsive design. Minimum page width with correct view - 320px.
