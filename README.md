@@ -2,13 +2,13 @@
 
 ---
 
-### DEPLOYMENT
+## DEPLOYMENT
 
 - [**ToDo List Website link**](https://melk0sha-todo-list.netlify.com/ "ToDo List")
 
 ---
 
-### OVERVIEW
+## OVERVIEW
 
 This is an application helps you to put all tasks together in one place.
 
@@ -24,7 +24,7 @@ You can:
 
 ---
 
-### TOOLS USING
+## TOOLS USING
 
 **React**, **JavaScript**, **Material Icons** and **SCSS** were used here.
 
@@ -33,6 +33,6 @@ Adaptive & responsive design. Minimum page width with correct view - 320px.
 
 ---
 
-#### DEVELOPMENT
+### DEVELOPMENT
 
 @ 2020 Diana Ivanova (@melk0sha)
